@@ -1,0 +1,72 @@
+.image-slides {
+    @apply w-full overflow-hidden relative;
+    max-width: 600px;
+    max-height: 400px;
+
+    margin: 0 auto;
+
+    .arrow-button {
+        @apply absolute h-full bg-gray-50 hidden opacity-90 text-gray-400 font-bold text-5xl items-center hover:bg-gray-400 hover:text-gray-200 cursor-pointer select-none z-10;
+        width: 40px;
+    }
+
+    &:hover .arrow-button {
+        @apply flex;
+    }
+
+    li {
+        @apply bg-gray-50 dark:bg-gray-600;
+    }
+
+    &:hover li {
+        @apply bg-gray-200 dark:bg-gray-600;
+
+        transition: background-color 0.1s ease-out;
+    }
+
+    ul {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    li {
+        @apply object-contain max-w-[600px] max-h-[400px];
+
+        img {
+            @apply mx-auto inline-block;
+        }
+    }
+}
+
+.project-brief {
+    @apply flex flex-row border border-gray-200 rounded-md overflow-hidden cursor-pointer mb-2 dark:border-gray-500;
+
+    .project-brief-image-container {
+        img.project-brief-image {
+            @apply object-cover w-[100px] h-[100px];
+        }
+    }
+
+    div.project-brief-details {
+        @apply p-1 pl-2 w-full dark:bg-gray-800 dark:text-gray-100;
+
+        &:hover {
+            box-shadow: inset 3000px 0 0 0;
+            @apply shadow-gray-900 dark:shadow-gray-600;
+        }
+
+        &:hover * {
+            @apply text-white dark:text-gray-400;
+        }
+
+        transition: box-shadow .3s ease-in,
+        color .3s ease-in;
+
+        .project-brief-title {
+            @apply text-2xl;
+        }
+    }
+}
+
+.nav-theme-toggle-icon {
+    @apply select-none inline absolute;
+}

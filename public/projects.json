@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "title": "Chat app",
+        "description": [
+            "Chat app powered by Ruby on Rails and React with websockets. The app was developed for me to strengthen my knowledge of Ruby on Rails and React."
+        ],
+        "githubUrl": "https://github.com/CelanMatjaz/chat-app-rails-react",
+        "technologies": [
+            "Typescript",
+            "Ruby",
+            "React",
+            "Rails",
+            "PostgreSQL",
+            "Docker",
+            "Tailwind"
+        ],
+        "imageUrls": [
+            "https://raw.githubusercontent.com/CelanMatjaz/chat-app-rails-react/master/assets/example_1.png",
+            "https://raw.githubusercontent.com/CelanMatjaz/chat-app-rails-react/master/assets/example_2.png"
+        ]
+    }
+]
