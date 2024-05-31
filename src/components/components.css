@@ -50,8 +50,7 @@
         @apply p-1 pl-2 w-full dark:bg-gray-800 dark:text-gray-100;
 
         &:hover {
-            box-shadow: inset 3000px 0 0 0;
-            @apply shadow-gray-900 dark:shadow-gray-600;
+            box-shadow: inset 3000px 0 0 0 #4b5563;
         }
 
         &:hover * {

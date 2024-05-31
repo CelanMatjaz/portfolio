@@ -8,7 +8,7 @@
 
 body,
 #root {
-    @apply relative overflow-x-hidden min-h-[100vh] min-w-[320px] dark:bg-gray-700;
+    @apply relative min-h-[100vh] min-w-[320px] dark:bg-gray-700 h-full;
 }
 
 @layer components {
@@ -29,7 +29,7 @@ body,
     }
 
     .navigation {
-        @apply bg-gray-50 p-6 sticky top-0 z-10 flex flex-row items-center dark:bg-gray-800;
+        @apply bg-gray-50 p-6 sticky top-0 z-20 flex flex-row items-center dark:bg-gray-800;
 
         ul {
             @apply inline-block

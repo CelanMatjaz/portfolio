@@ -14,9 +14,9 @@ export const Project = (props: {}) => {
             <div className="mb-4">
                 <h1 className="text-4xl mb-2">{project.title}</h1>
             </div>
-            <div className="mb-4">
+            {project.imageUrls.length > 0 && <div className="mb-4">
                 <ImageSlides imageUrls={project.imageUrls} />
-            </div>
+            </div>}
             <div className="mb-4">
                 <a href={project.githubUrl} target="_blank" className="default-link">Project repository</a>
             </div>
@@ -24,7 +24,7 @@ export const Project = (props: {}) => {
                 <strong>Technologies used: </strong>{project.technologies.join(', ')}
             </div>
             <div>
-                {project.description.map((d, i) => <p key={i} className="mb-3">{d}</p>)}
+                {project.description.map((d, i) => <p key={i} className="mb-2">{d}</p>)}
             </div>
         </div>
     )
