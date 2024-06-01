@@ -1,0 +1,27 @@
+name: Build on push
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:     
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          # cache: yarn
+      - run: npm i -g yarn # Doesn't seem like above action installs yarn
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
+      - uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.ACTION_GITHUB_TOKEN }}
+        with:
+          source-directory: dist/
+          destination-github-username: CelanMatjaz
+          destination-repository-name: celanmatjaz.github.io
+          user-email: matjazcelangithub@gmail.com
+          target-branch: master
