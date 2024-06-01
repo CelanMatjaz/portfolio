@@ -12,7 +12,7 @@ export const Projects = () => {
     const projectBriefs = React.useMemo(() => {
         const filteredProjects = filters.length === 0 ? projects : projects.filter(p => {
             for (const f of filters) {
-                if(!p.technologies.includes(f)) return false;
+                if (!p.technologies.includes(f)) return false;
             }
             return true;
         });
@@ -24,18 +24,18 @@ export const Projects = () => {
     }, [setFilters]);
 
     return (
-        <div className="projects flex flex-row gap-1">
+        <div className="projects">
             {projectId ?
                 <Outlet context={projects.find(p => p.id.toString() == projectId)} /> :
-                <>
-                    <div style={{ width: '300px' }}>
+                <div className="max-w-[1000px] flex flex-row gap-1 mx-auto">
+                    <div className="filters w-[300px]">
                         <b>Technology filters</b>
                         <Technologies onChange={onTechnologiesChange} />
                     </div>
-                    <div style={{ width: '100%' }}>
+                    <div className="w-full">
                         <ul>{projectBriefs}</ul>
                     </div>
-                </>
+                </div>
             }
         </div>
     );

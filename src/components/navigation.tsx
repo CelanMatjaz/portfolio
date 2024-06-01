@@ -14,7 +14,6 @@ export const Navigation = () => {
 
     return <nav className="navigation">
         <ul>
-            <li><NavLink to="home" className="nav-link">Home</NavLink></li>
             <li><NavLink to="about" className="nav-link">About</NavLink></li>
             <li><NavLink to="projects" className="nav-link" >Projects</NavLink></li>
         </ul>

@@ -14,7 +14,6 @@ export const Layout: React.FC = () => {
     )
 }
 
-
 function Footer() {
     return <footer className="bg-gray-50 p-6 flex flex-col absolute bottom-0 w-screen dark:bg-gray-800">
         <div className="flex justify-center">
