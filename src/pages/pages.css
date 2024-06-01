@@ -1,0 +1,14 @@
+.about-container {
+    @apply flex flex-row gap-10;
+
+    img {
+        @apply mx-auto mb-12 max-w-[300px] rounded-full;
+    }
+}
+
+
+@media screen and (max-width: 780px) {
+    .about-container {
+        @apply block;
+    }
+}
