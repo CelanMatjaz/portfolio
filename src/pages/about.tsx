@@ -10,6 +10,9 @@ export const About = () => {
                 <p>
                     I am a passionate and experienced Full-Stack Developer, specializing in both frontend and backend development. With a deep understanding of modern web technologies, I create efficient, and visually appealing applications. My goal is to build intuitive and dynamic user experiences while ensuring robust and scalable backend systems. I also dabble in some graphics programming in C++ with Vulkan and OpenGL.
                 </p>
+                <p>
+                    My editor of choice is Neovim, you can look at my config <a className="default-link" href="https://github.com/CelanMatjaz/nvim.config" target="_blank">here</a>.
+                </p>
                 <p>Check out some of my <Link to="/projects" className="default-link">projects</Link></p>
                 <h2 className="text-xl mt-6 font-bold">
                     Frontend Development
@@ -36,20 +39,26 @@ export const About = () => {
                 </p>
                 <div>
                     <div>
-                        <strong>Languages:</strong> NodeJS, PHP, C#, Go, Ruby
+                        <strong>Languages:</strong> Javascript/Typescript, PHP, C#, Go, Ruby
                     </div>
                     <div>
-                        <strong>Frameworks:</strong> Express, Laravel, Ruby on Rails, .NET
+                        <strong>Frameworks:</strong> Express, Next, Laravel, Ruby on Rails, .NET
                     </div>
                     <div>
                         <strong>Databases:</strong> PostgreSQL, MongoDB, Redis, RabbitMQ
+                    </div>
+                    <div>
+                        <strong>Other:</strong> Docker, Git, Github Actions
                     </div>
                 </div>
                 <h2 className="text-xl mt-6 font-bold">
                     Other technologies
                 </h2>
+                <p>
+                    Creating console/desktop applications as well as mobile apps.
+                </p>
                 <div>
-                    Docker, Git
+                    <strong>Languages:</strong> C++, C, Java, Kotlin
                 </div>
             </div>
         </div>
