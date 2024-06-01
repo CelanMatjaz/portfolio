@@ -1,7 +1,6 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 
-export const Error404 = (props : {}) => {
+export const Error404 = () => {
     return (
         <div className="text-center pt-10 w-full">
             <h1 className="text-5xl">404</h1>

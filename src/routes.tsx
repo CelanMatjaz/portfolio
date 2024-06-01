@@ -15,10 +15,6 @@ export const router = createBrowserRouter([{
             Component: About
         },
         {
-            path: 'about',
-            Component: About
-        },
-        {
             path: 'projects',
             Component: Projects,
             children: [

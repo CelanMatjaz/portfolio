@@ -10,4 +10,15 @@
     .about-container {
         @apply block;
     }
+
+    .projects {
+
+        div {
+            @apply block;
+        }
+
+        .filters {
+            @apply w-full mb-8;
+        }
+    }
 }

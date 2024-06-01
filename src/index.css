@@ -58,12 +58,4 @@ body,
     main {
         @apply p-2;
     }
-
-    .projects {
-        @apply block;
-
-        .filters {
-            @apply w-full mb-8;
-        }
-    }
 }

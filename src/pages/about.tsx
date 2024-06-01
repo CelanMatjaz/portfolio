@@ -1,15 +1,16 @@
-import React from 'react'
 import './pages.css'
+import { Link } from 'react-router-dom'
 
 export const About = () => {
     return (
         <div className="about-container ">
-            <div><img src="/profile_pic.png" alt="Github profile picture"/></div>
+            <div><img src="/profile_pic.png" alt="Github profile picture" /></div>
             <div>
                 <h1 className="text-2xl mb-2">Hi, I'm Matjaž Čelan</h1>
                 <p>
                     I am a passionate and experienced Full-Stack Developer, specializing in both frontend and backend development. With a deep understanding of modern web technologies, I create efficient, and visually appealing applications. My goal is to build intuitive and dynamic user experiences while ensuring robust and scalable backend systems. I also dabble in some graphics programming in C++ with Vulkan and OpenGL.
                 </p>
+                <p>Check out some of my <Link to="/projects" className="default-link">projects</Link></p>
                 <h2 className="text-xl mt-6 font-bold">
                     Frontend Development
                 </h2>

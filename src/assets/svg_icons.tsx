@@ -1,5 +1,3 @@
-import React from 'react'
-
 // Icons taken from https://www.svgrepo.com/vectors
 
 export const SunIcon = () => <i className="nav-theme-toggle-icon"><svg className="h-[30px]" width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

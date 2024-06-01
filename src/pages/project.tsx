@@ -1,10 +1,9 @@
-import React from 'react'
-import { useLoaderData, useOutletContext } from 'react-router-dom';
+import {  useOutletContext } from 'react-router-dom';
 import { Project as ProjectType } from '../types';
 import { Error404 } from './error_404';
 import { ImageSlides } from '../components/image_slides';
 
-export const Project = (props: {}) => {
+export const Project = () => {
     const project = useOutletContext<ProjectType>();
 
     if (!project) return <Error404 />
