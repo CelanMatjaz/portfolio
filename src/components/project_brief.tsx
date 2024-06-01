@@ -7,13 +7,13 @@ interface Props {
 }
 
 export const ProjectBrief = (props: Props) => {
-    const {id, title, technologies, imageUrls } = props.project;
+    const { id, title, technologies, imageUrls } = props.project;
 
     return (
         <Link className="project-brief" to={React.useMemo(() => `/projects/${id}`, [id])}>
-            <div className="project-brief-image-container">
+            {imageUrls.length > 0 && <div className="project-brief-image-container">
                 <img className="project-brief-image" src={imageUrls[0]} />
-            </div>
+            </div>}
             <div className="project-brief-details">
                 <div className="project-brief-title">{title}</div>
                 <div className="project-brief-technologies">{technologies.join(', ')}</div>

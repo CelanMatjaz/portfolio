@@ -38,5 +38,100 @@
             "https://raw.githubusercontent.com/CelanMatjaz/toki/master/assets/pic2.png",
             "https://raw.githubusercontent.com/CelanMatjaz/toki/master/assets/pic3.png"
         ]
+    },
+    {
+        "id": 3,
+        "title": "Web store",
+        "description": [
+            "Web store implementation, using Ruby on Rails. The purpose of the project was to strenghten my knowledge of Ruby on Rails."
+        ],
+        "githubUrl": "https://github.com/CelanMatjaz/Toki",
+        "technologies": [
+            "Ruby",
+            "Rails",
+            "Docker",
+            "PostgreSQL"
+        ],
+        "imageUrls": []
+    },
+    {
+        "id": 4,
+        "title": "Post site",
+        "description": [
+            "Simple fullstack app written in Go where users can post posts. Project was meant primarily for learning Go."
+        ],
+        "githubUrl": "https://github.com/CelanMatjaz/go-posts",
+        "technologies": [
+            "Go",
+            "PostgreSQL"
+        ],
+        "imageUrls": []
+    },
+    {
+        "id": 5,
+        "title": "Bucket list",
+        "description": [
+            "Angular frontend app, used for displaying cloud buckets and files that they contain.",
+            "No actual API is used for this project."
+        ],
+        "githubUrl": "https://github.com/CelanMatjaz/bucket-list",
+        "technologies": [
+            "Angular"
+        ],
+        "imageUrls": []
+    },
+    {
+        "id": 6,
+        "title": "Movies and Actors",
+        "description": [
+            "Backend .NET application with multiple webservices, created for consolidating my knowledge of Docker and .Net."
+        ],
+        "githubUrl": "https://github.com/CelanMatjaz/movies-and-actors",
+        "technologies": [
+            "C#",
+            ".NET",
+            "Docker",
+            "PostgreSQL"
+        ],
+        "imageUrls": []
+    },
+    {
+        "id": 7,
+        "title": "Book your barber",
+        "description": [
+            "Angular frontend app, used for booking a barber."
+        ],
+        "githubUrl": "https://github.com/CelanMatjaz/barber-booking-site",
+        "technologies": [
+            "Angular"
+        ],
+        "imageUrls": []
+    },
+    {
+        "id": 8,
+        "title": "Simple OAuth2 server",
+        "description": [
+            "Fullstack Ruby on Rails server which implements an OAuth2 authentication."
+        ],
+        "githubUrl": "https://github.com/CelanMatjaz/simple-oauth2-server",
+        "technologies": [
+            "Ruby",
+            "Rails",
+            "Postgres"
+        ],
+        "imageUrls": []
+    },
+    {
+        "id": 9,
+        "title": "Pokedex",
+        "description": [
+            "Frontend React app, which shows pokemon stats, moves and abilities."
+        ],
+        "githubUrl": "https://github.com/CelanMatjaz/pokedex",
+        "technologies": [
+            "Javascript",
+            "React"
+        ],
+        "imageUrls": []
     }
 ]

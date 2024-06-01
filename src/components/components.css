@@ -38,7 +38,7 @@
 }
 
 .project-brief {
-    @apply flex flex-row border border-gray-200 rounded-md overflow-hidden cursor-pointer mb-2 dark:border-gray-500;
+    @apply flex flex-row border border-gray-200 rounded-md overflow-hidden cursor-pointer mb-2 dark:border-gray-500 h-[100px];
 
     .project-brief-image-container {
         img.project-brief-image {
