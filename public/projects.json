@@ -45,7 +45,7 @@
         "description": [
             "Web store implementation, using Ruby on Rails. The purpose of the project was to strenghten my knowledge of Ruby on Rails."
         ],
-        "githubUrl": "https://github.com/CelanMatjaz/Toki",
+        "githubUrl": "https://github.com/CelanMatjaz/webstore-ruby",
         "technologies": [
             "Ruby",
             "Rails",
