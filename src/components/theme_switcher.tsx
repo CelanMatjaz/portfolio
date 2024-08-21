@@ -1,9 +1,7 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import { MoonIcon, SunIcon } from "../assets/svg_icons";
 
-
-export const Navigation = () => {
+export const ThemeSwitcher = () => {
     React.useEffect(() => {
         if (localStorage.getItem('theme') === 'dark') {
             setDarkTheme(true);
@@ -12,11 +10,7 @@ export const Navigation = () => {
 
     const [isDarkTheme, setIsDarkTheme] = React.useState(localStorage.getItem('theme') === 'dark');
 
-    return <nav className="navigation">
-        <ul>
-            <li><NavLink to="" className="nav-link">About</NavLink></li>
-            <li><NavLink to="projects" className="nav-link" >Projects</NavLink></li>
-        </ul>
+    return <nav className="theme-switcher">
         <button className={isDarkTheme ? '' : 'hidden'} onClick={() => {
             setIsDarkTheme(false);
             setDarkTheme(false);

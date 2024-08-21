@@ -1,32 +1,26 @@
+import { Project, Window } from './types';
+import { useQuery } from 'react-query';
+import { ProjectsContext, WindowsContext } from './context';
 import React from 'react';
-import { RouterProvider } from 'react-router-dom';
-import { router } from './routes';
-import { Project } from './types';
-
-export const ProjectsContext = React.createContext<Project[]>([]);
+import { Layout } from './layout';
 
 function App() {
-    const [projects, setProjects] = React.useState([]);
+    const [windows, setWindows] = React.useState<Window[]>([]);
 
-    React.useEffect(() => {
-        async function fetchProjects() {
-            try {
-                const res = await fetch('/projects.json');
-                const data = await res.json();
-                setProjects(data);
-            }
-            catch { }
-        }
-
-        fetchProjects();
-    }, []);
+    const { data: projects } = useQuery<Project[]>({
+        queryFn: async () => {
+            const response = await fetch("/projects.json");
+            return await response.json();
+        },
+        queryKey: ['projects'],
+    });
 
     return (
-        <React.StrictMode>
-            <ProjectsContext.Provider value={projects}>
-                <RouterProvider router={router}></RouterProvider>
-            </ProjectsContext.Provider>
-        </React.StrictMode>
+        <ProjectsContext.Provider value={projects || []}>
+            <WindowsContext.Provider value={{ windows, setWindows }} >
+                <Layout />
+            </WindowsContext.Provider>
+        </ProjectsContext.Provider>
     );
 }
 

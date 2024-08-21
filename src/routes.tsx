@@ -1,30 +1,26 @@
-import { createHashRouter } from "react-router-dom";
+import { Link, createHashRouter } from "react-router-dom";
 
 import { Layout } from "./layout";
-import { About } from "./pages/about";
-import { Project } from "./pages/project";
-import { Projects } from "./pages/projects";
-import { Error404 } from "./pages/error_404";
+import { Desktop } from "./components/desktop";
 
 export const router = createHashRouter([{
     path: '/',
     Component: Layout,
     children: [
         {
-            path: '/',
-            Component: About
-        },
-        {
-            path: 'projects',
-            Component: Projects,
-            children: [
-                {
-                    path: ':projectId',
-                    Component: Project,
-                    errorElement: <Error404 />
-                }
-            ]
+            path: '*',
+            Component: Desktop
         },
     ],
     errorElement: <Error404 />
 }]);
+
+function Error404() {
+    return (
+        <div className="text-center pt-10 w-full">
+            <h1 className="text-5xl">404</h1>
+            <p>Page does not exist</p>
+            <Link to="/" className="default-link">Back to home</Link>
+        </div>
+    )
+}

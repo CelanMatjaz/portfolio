@@ -7,4 +7,19 @@ export interface Project {
     imageUrls: string[];
 }
 
-export type Projects = Project[];
+export interface Task {
+    projectId: number;
+    imageUrl?: string;
+};
+
+export interface Transform {
+    x: number;
+    y: number;
+}
+
+export interface Window {
+    id: number;
+    title: string;
+    children: JSX.Element;
+    transform: Transform;
+}
