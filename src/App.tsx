@@ -1,7 +1,7 @@
+import React from 'react';
 import { Project, Window } from './types';
 import { useQuery } from 'react-query';
 import { ProjectsContext, WindowsContext } from './context';
-import React from 'react';
 import { Layout } from './layout';
 
 function App() {

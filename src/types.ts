@@ -5,7 +5,7 @@ export interface Project {
     githubUrl: string;
     technologies: string[];
     imageUrls: string[];
-}
+};
 
 export interface Task {
     projectId: number;
@@ -15,11 +15,11 @@ export interface Task {
 export interface Transform {
     x: number;
     y: number;
-}
+};
 
 export interface Window {
     id: number;
     title: string;
     children: JSX.Element;
     transform: Transform;
-}
+};

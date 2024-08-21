@@ -8,8 +8,7 @@
 
 body,
 #root {
-    /* @apply relative h-[100vh] min-w-[320px] dark:bg-gray-700 overflow-clip; */
-    @apply relative h-[100vh] min-w-[320px] dark:bg-gray-700;
+    @apply relative h-[100vh] min-w-[320px] dark:bg-gray-700 overflow-clip;
 }
 
 @layer components {

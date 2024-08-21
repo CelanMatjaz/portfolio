@@ -35,7 +35,7 @@ export const DesktopWindow: React.FC<DesktopWindowProps> = (props) => {
                 </div>
                 <span className="buttons">
                     <MinimizeIcon />
-                    <div className="hover:bg-red-500 hover:text-white" onClick={() => onClose(w.id)}><CrossIcon /></div>
+                    <div className="hover:bg-red-500 hover:text-white" onClick={() => onClose(windowIndex)}><CrossIcon /></div>
                 </span>
             </div>
             {w.children}
