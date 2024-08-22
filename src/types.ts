@@ -22,4 +22,5 @@ export interface Window {
     title: string;
     children: JSX.Element;
     transform: Transform;
+    imageUrl?: string;
 };

@@ -31,14 +31,16 @@ export const DesktopWindow: React.FC<DesktopWindowProps> = (props) => {
         <span className={classNames("desktop-window", { front: isFront })} onClick={() => onClick(windowIndex)} ref={setNodeRef} style={style} {...listeners} {...attributes}>
             <div className="window-titlebar">
                 <div className="window-title">
-                    {w.title}
+                    Project - {w.title}
                 </div>
                 <span className="buttons">
                     <MinimizeIcon />
                     <div className="hover:bg-red-500 hover:text-white" onClick={() => onClose(windowIndex)}><CrossIcon /></div>
                 </span>
             </div>
-            {w.children}
+            <div className="window-content">
+                {w.children}
+            </div>
         </span>
     );
 }

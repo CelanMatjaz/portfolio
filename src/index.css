@@ -27,6 +27,12 @@ body,
             @apply inline-block h-full items-center;
         }
 
+        i {
+            @apply w-[50px] h-[50px];
+
+            svg {}
+        }
+
         .tasks {
             @apply flex;
 
@@ -52,7 +58,7 @@ body,
 
             svg {
                 @apply h-full w-full;
-                transform: scale(50%);
+                transform: translate3d(-50%, -50%, 0) scale(50%);
             }
         }
 
@@ -90,7 +96,7 @@ body,
     }
 
     .desktop-window {
-        @apply absolute bg-sky-500 top-0 left-0 min-w-[360px];
+        @apply absolute bg-sky-500 top-0 left-0 min-w-[360px] max-w-[80vw];
 
         &.front {
             @apply bg-sky-900;
@@ -108,6 +114,11 @@ body,
                     @apply inline-block;
                 }
             }
+        }
+
+        .window-content {
+            @apply p-2 border-white border;
+            border-top: none;
         }
     }
 }

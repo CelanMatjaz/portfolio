@@ -3,8 +3,9 @@ import { Taskbar } from './components/taskbar'
 import { Desktop } from './components/desktop'
 import { WindowsContext } from './context';
 import { DndContext, DragEndEvent, DragStartEvent, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
-import { Project, Window } from './types';
+import { Project as ProjectType } from './types';
 import { DesktopWindow } from './components/desktop_window';
+import { Project } from './components/project';
 
 let handlingWindowClick = false;
 
@@ -29,18 +30,22 @@ export const Layout: React.FC = () => {
         });
     }, [windows]);
 
-    const createProjectWindow = React.useCallback(({ id, title }: Project) => {
+    const createProjectWindow = React.useCallback((project: ProjectType) => {
+        const { id, title } = project;
         setWindows(windows => {
-            if (!windows.find(w => w.id === id)) {
-                const newWindow: Window = {
-                    children: <>{title}</>,
-                    transform: { x: 0, y: 0 },
-                    id, title
-                }
-                return [...windows, newWindow];
+            const foundWindowIndex = windows.findIndex(w => w.id === id);
+            if (foundWindowIndex > -1) {
+                const newWindows = [...windows];
+                newWindows[foundWindowIndex].transform = { x: 20, y: 20 };
+                return newWindows;
             }
 
-            return windows;
+            return [...windows, {
+                children: <Project project={project} />,
+                transform: { x: 20, y: 20 },
+                imageUrl: project.githubUrl.length > 0 ? project.githubUrl[0] : undefined,
+                id, title
+            }];
         });
 
     }, [windows]);
@@ -77,7 +82,7 @@ export const Layout: React.FC = () => {
     return (
         <>
             <DndContext modifiers={[]} onDragStart={onDragStart} onDragEnd={onDragEnd} sensors={sensors}>
-                <Desktop onOpenWindow={(p: Project) => createProjectWindow(p)}>
+                <Desktop onOpenWindow={(p: ProjectType) => createProjectWindow(p)}>
                     {windows.map((window, i) => <DesktopWindow
                         key={i}
                         windowIndex={i}
@@ -89,5 +94,6 @@ export const Layout: React.FC = () => {
             </DndContext>
             <Taskbar tasks={[{ projectId: 1 }]} />
         </>
-    )
+    );
 }
+
