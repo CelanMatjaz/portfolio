@@ -13,6 +13,7 @@ function App() {
             return await response.json();
         },
         queryKey: ['projects'],
+
     });
 
     return (

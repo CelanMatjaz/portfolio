@@ -1,8 +1,8 @@
 import { useDroppable } from "@dnd-kit/core";
 import React from "react";
-import { DesktopIconProject } from "./desktop_icon_project";
 import { ProjectsContext } from "../context";
 import { Project } from "../types";
+import { DesktopIconProject } from "./desktop_icon_project";
 
 interface DesktopProps {
     onOpenWindow: (project: Project) => void;

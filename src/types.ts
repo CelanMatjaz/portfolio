@@ -7,11 +7,6 @@ export interface Project {
     imageUrls: string[];
 };
 
-export interface Task {
-    projectId: number;
-    imageUrl?: string;
-};
-
 export interface Transform {
     x: number;
     y: number;
@@ -23,4 +18,10 @@ export interface Window {
     children: JSX.Element;
     transform: Transform;
     imageUrl?: string;
+    isHidden: boolean;
+};
+
+export interface Index {
+    arrayIndex: number;
+    orderIndex: number;
 };

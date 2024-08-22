@@ -1,24 +1,25 @@
+import React from "react";
 import { useDraggable } from "@dnd-kit/core";
 import { CSS } from "@dnd-kit/utilities"
-import React from "react";
-import { Window } from "../types";
+import { Index, Window } from "../types";
 import { CrossIcon, MinimizeIcon } from "../assets/svg_icons";
 import classNames from "classnames";
 
 interface DesktopWindowProps {
-    windowIndex: number;
+    index: Index;
     window: Window;
     isFront: boolean
-    onClick: (index: number) => void;
-    onClose: (index: number) => void;
+    onClick: (index: Index) => void;
+    onClose: (index: Index) => void;
+    onMinimize: (index: Index) => void;
 }
 
 export const DesktopWindow: React.FC<DesktopWindowProps> = (props) => {
-    const { windowIndex, window: w, onClose, onClick, isFront } = props;
+    const { index, window: w, onClose, onClick, onMinimize, isFront } = props;
 
     const { attributes, listeners, setNodeRef, transform } = useDraggable({
         id: props.window.id,
-        data: { windowIndex: props.windowIndex }
+        data: { index }
     });
 
     const style = {
@@ -28,14 +29,14 @@ export const DesktopWindow: React.FC<DesktopWindowProps> = (props) => {
     };
 
     return (
-        <span className={classNames("desktop-window", { front: isFront })} onClick={() => onClick(windowIndex)} ref={setNodeRef} style={style} {...listeners} {...attributes}>
-            <div className="window-titlebar">
+        <span className={classNames("desktop-window", { front: isFront, 'z-20': isFront })} onClick={() => onClick(index)} ref={setNodeRef} style={style} {...listeners} {...attributes}>
+            <div className="window-titlebar select-none">
                 <div className="window-title">
                     Project - {w.title}
                 </div>
                 <span className="buttons">
-                    <MinimizeIcon />
-                    <div className="hover:bg-red-500 hover:text-white" onClick={() => onClose(windowIndex)}><CrossIcon /></div>
+                    <div className="hover:bg-gray-600 hover:fill-white" onClick={() => onMinimize(index)}><MinimizeIcon /></div>
+                    <div className="hover:bg-red-500 hover:fill-white" onClick={() => onClose(index)}><CrossIcon /></div>
                 </span>
             </div>
             <div className="window-content">

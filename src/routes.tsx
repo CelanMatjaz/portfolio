@@ -1,7 +1,7 @@
 import { Link, createHashRouter } from "react-router-dom";
 
 import { Layout } from "./layout";
-import { Desktop } from "./components/desktop";
+import { Desktop } from "./desktop/desktop";
 
 export const router = createHashRouter([{
     path: '/',
