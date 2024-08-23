@@ -34,8 +34,12 @@
     }
 
     .start-menu {
-        @apply w-[400px] h-auto bg-slate-950 absolute rounded-tr-lg;
+        @apply w-[400px] h-auto bg-slate-950 absolute rounded-tr-lg overflow-hidden;
         transform: translateY(-100%);
+
+        .start-menu-item {
+            @apply p-2 hover:bg-slate-500;
+        }
     }
 
     i {
@@ -51,7 +55,11 @@
         }
 
         .task {
-            @apply inline-flex items-center h-[50px] bg-red-800;
+            @apply inline-flex items-center h-[50px] w-[50px] bg-red-800 justify-center mr-[1px] hover:bg-red-400 cursor-pointer;
+
+            * {
+                @apply w-[40px] h-[40px];
+            }
         }
     }
 
@@ -67,10 +75,8 @@
         @apply bg-sky-900;
     }
 
-    ff .window-titlebar {
+    .window-titlebar {
         @apply relative bg-zinc-50 h-[30px] flex items-center pl-2;
-
-        .window-title {}
 
         .buttons {
             @apply absolute right-0 top-0;

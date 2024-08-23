@@ -7,8 +7,6 @@ import { Index, Project as ProjectType, Window as WindowType } from './types';
 import { DesktopWindow } from './desktop/desktop_window';
 import { Project } from './components/project';
 
-let handlingWindowClick = false;
-
 export const Layout: React.FC = () => {
     const { windows, setWindows } = React.useContext(WindowsContext);
     const [windowOrder, setWindowOrder] = React.useState<number[]>([]);
@@ -55,27 +53,26 @@ export const Layout: React.FC = () => {
             });
 
             const newWindows = [...windows];
-            newWindows[existingWindowIndex].transform = { x: 10, y: 10 };
-
+            newWindows[existingWindowIndex].isHidden = false;
             return newWindows;
         });
     }, []);
 
     const onWindowClick = React.useCallback((windowIndex: Index) => {
-        if (handlingWindowClick) {
-            handlingWindowClick = false;
-            return;
-        }
-
         setWindowOrder(windowOrder => {
             const newWindowOrder = [...windowOrder, windowIndex.arrayIndex];
             newWindowOrder.splice(windowIndex.orderIndex, 1);
             return newWindowOrder;
         });
+
+        setWindows(windows => {
+            const newWindows = [...windows];
+            newWindows[windowIndex.arrayIndex].isHidden = false;
+            return newWindows;
+        })
     }, []);
 
     const onWindowClose = React.useCallback((windowIndex: Index) => {
-        handlingWindowClick = true;
         setWindowOrder(windowOrder => {
             const newWindowOrder = [...windowOrder];
             newWindowOrder.splice(windowIndex.orderIndex, 1);
@@ -84,8 +81,10 @@ export const Layout: React.FC = () => {
     }, []);
 
     const onWindowMinimize = React.useCallback((windowIndex: Index) => {
-        setWindowOrder(windowOrder => {
-            return windowOrder.filter((_, i) => i !== windowIndex.orderIndex);
+        setWindows(windows => {
+            const newWindows = [...windows];
+            newWindows[windowIndex.arrayIndex].isHidden = true;
+            return newWindows;
         });
     }, []);
 
@@ -101,7 +100,7 @@ export const Layout: React.FC = () => {
         <>
             <DndContext modifiers={[]} onDragStart={onDragStart} onDragEnd={onDragEnd} sensors={sensors}>
                 <Desktop onOpenWindow={(p: ProjectType) => openProjectWindow(p)}>
-                    {windowOrder.map((windowIndex, i) => <DesktopWindow
+                    {windowOrder.filter(o => windows[o].isHidden === false).map((windowIndex, i) => <DesktopWindow
                         key={i}
                         index={{ arrayIndex: windowIndex, orderIndex: i }}
                         window={windows[windowIndex]}
@@ -111,7 +110,12 @@ export const Layout: React.FC = () => {
                         onMinimize={onWindowMinimize} />)}
                 </Desktop>
             </DndContext>
-            <Taskbar windows={windows} />
+            <Taskbar
+                windows={windows}
+                windowOrder={windowOrder}
+                onTaskClick={onWindowClick}
+                onTaskMinimize={onWindowMinimize}
+                onOpenProjectWindow={openProjectWindow} />
         </>
     );
 }
