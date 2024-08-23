@@ -3,6 +3,8 @@ import React from "react";
 import { ProjectsContext } from "../context";
 import { Project } from "../types";
 import { DesktopIconProject } from "./desktop_icon_project";
+import './desktop.css'
+import './desktop-animations.css'
 
 interface DesktopProps {
     onOpenWindow: (project: Project) => void;

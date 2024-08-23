@@ -1,0 +1,88 @@
+.desktop {
+    @apply h-screen bg-lime-500 pb-[60px] grid p-2;
+    grid-template-rows: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    grid-auto-flow: column;
+    grid-gap: 0.3rem;
+
+    .desktop-icon {
+        @apply flex justify-center flex-col w-32 p-2 hover:bg-gray-100 rounded cursor-pointer select-none;
+
+        &.selected {
+            @apply bg-gray-100;
+        }
+
+        .image-icon,
+        img {
+            @apply mx-auto;
+            width: 50px;
+            height: 50px;
+        }
+
+        .title {
+            @apply mx-auto text-center mt-2;
+        }
+    }
+}
+
+.taskbar {
+    @apply bg-red-500 absolute bottom-0 w-screen dark:bg-gray-800 min-h-[50px] z-20 select-none;
+
+    .options,
+    .tasks {
+        @apply inline-block h-full items-center;
+    }
+
+    .start-menu {
+        @apply w-[400px] h-auto bg-slate-950 absolute rounded-tr-lg;
+        transform: translateY(-100%);
+    }
+
+    i {
+        @apply w-[50px] h-[50px];
+    }
+
+
+    .tasks {
+        @apply flex z-10;
+
+        .start-button {
+            @apply bg-red-700 flex items-center px-4 h-[50px] mr-1 cursor-pointer;
+        }
+
+        .task {
+            @apply inline-flex items-center h-[50px] bg-red-800;
+        }
+    }
+
+    .options {
+        @apply flex bg-blue-600 absolute right-0 top-0 items-center;
+    }
+}
+
+.desktop-window {
+    @apply absolute bg-sky-500 top-0 left-0 min-w-[360px] max-w-[80vw];
+
+    &.front {
+        @apply bg-sky-900;
+    }
+
+    ff .window-titlebar {
+        @apply relative bg-zinc-50 h-[30px] flex items-center pl-2;
+
+        .window-title {}
+
+        .buttons {
+            @apply absolute right-0 top-0;
+
+            &>* {
+                @apply inline-block;
+            }
+        }
+    }
+
+    .window-content {
+        @apply p-2 border-white border;
+        border-top: none;
+    }
+}

@@ -69,18 +69,3 @@
 .theme-switch-icon {
     @apply select-none inline absolute;
 }
-
-.desktop {
-    @apply grid relative;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-
-    .desktop-icon {
-        @apply p-2;
-    }
-
-    .image-icon {
-        width: 40px;
-        height: 40px;
-    }
-}
-

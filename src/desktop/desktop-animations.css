@@ -1,0 +1,15 @@
+@keyframes start-menu-appear {
+    0% {
+        transform: scaleY(0) scaleX(0.4) translateY(-100%);
+    }
+
+    100% {
+        transform: scaleY(1) scaleX(1) translateY(-100%);
+    }
+}
+
+.start-menu-appear {
+    animation-name: start-menu-appear;
+    animation-duration: 0.2s;
+    transform-origin: bottom left;
+}

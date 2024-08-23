@@ -1,5 +1,5 @@
 import React from 'react'
-import { Taskbar } from './components/taskbar'
+import { Taskbar } from './desktop/taskbar'
 import { Desktop } from './desktop/desktop'
 import { WindowsContext } from './context';
 import { DndContext, DragEndEvent, DragStartEvent, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
