@@ -18,7 +18,6 @@ export interface Window {
     children: JSX.Element;
     transform: Transform;
     imageUrl?: string;
-    isHidden: boolean;
 };
 
 export interface Index {

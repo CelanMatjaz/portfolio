@@ -37,8 +37,18 @@
         @apply w-[400px] h-auto bg-slate-950 absolute rounded-tr-lg overflow-hidden;
         transform: translateY(-100%);
 
+        .start-menu-group {
+            @apply underline;
+
+        }
+
+        .start-menu-group,
         .start-menu-item {
-            @apply p-2 hover:bg-slate-500;
+            @apply px-[4px] py-[1px] hover:bg-slate-500;
+        }
+
+        .start-menu-bottom-padding {
+            @apply h-[20px];
         }
     }
 
@@ -51,7 +61,7 @@
         @apply flex z-10;
 
         .start-button {
-            @apply bg-red-700 flex items-center px-4 h-[50px] mr-1 cursor-pointer;
+            @apply bg-red-700 flex items-center px-4 h-[50px] mr-[1px] cursor-pointer;
         }
 
         .task {

@@ -9,13 +9,13 @@ interface DesktopWindowProps {
     index: Index;
     window: Window;
     isFront: boolean
-    onClick: (index: Index) => void;
-    onClose: (index: Index) => void;
-    onMinimize: (index: Index) => void;
-}
+    closeWindow: (index: Index) => void;
+    toggleWindowShown: (index: Index) => void;
+    bringWindowToFront: (index: Index) => void;
+};
 
 export const DesktopWindow: React.FC<DesktopWindowProps> = (props) => {
-    const { index, window: w, onClose, onClick, onMinimize, isFront } = props;
+    const { index, window: w, toggleWindowShown, closeWindow, bringWindowToFront, isFront } = props;
 
     const { attributes, listeners, setNodeRef, transform } = useDraggable({
         id: props.window.id,
@@ -29,18 +29,22 @@ export const DesktopWindow: React.FC<DesktopWindowProps> = (props) => {
     };
 
     return (
-        <span className={classNames("desktop-window", { front: isFront, 'z-20': isFront })} onClick={() => onClick(index)} ref={setNodeRef} style={style} {...listeners} {...attributes}>
+        <span
+            className={classNames("desktop-window", { front: isFront, 'z-20': isFront })}
+            onClick={() => bringWindowToFront(index)}
+            style={style}
+            ref={setNodeRef}
+            {...listeners}
+            {...attributes}>
             <div className="window-titlebar select-none">
-                <div className="window-title">
-                    Project - {w.title}
-                </div>
+                <div className="window-title">Project - {w.title}</div>
                 <span className="buttons">
                     <div className="hover:bg-gray-600 hover:fill-white" onClick={(e) => {
-                        onMinimize(index);
+                        toggleWindowShown(index);
                         e.stopPropagation();
                     }}><MinimizeIcon /></div>
                     <div className="hover:bg-red-500 hover:fill-white" onClick={(e) => {
-                        onClose(index);
+                        closeWindow(index);
                         e.stopPropagation();
                     }}><CrossIcon /></div>
                 </span>
