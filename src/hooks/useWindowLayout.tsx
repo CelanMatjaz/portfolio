@@ -39,7 +39,6 @@ export function useWindowLayout() {
     }, []);
 
     const openProjectWindow = React.useCallback((project: ProjectType) => {
-        console.log("open")
         setWindowLayout(old => {
             const newLayout = { ...old };
 
@@ -47,6 +46,7 @@ export function useWindowLayout() {
             const foundProjectWindowIndex = old.windows.findIndex(w => w.id === project.id);
             if (foundProjectWindowIndex !== -1) {
                 newLayout.windowOrder = [...old.windowOrder, foundProjectWindowIndex];
+                newLayout.windowOrder.splice(old.windowOrder.indexOf(foundProjectWindowIndex), 1);
                 return newLayout;
             }
 
@@ -59,7 +59,6 @@ export function useWindowLayout() {
     }, []);
 
     const closeWindow = React.useCallback(({ arrayIndex }: Index) => {
-        console.log("close")
         setWindowLayout(old => {
             const newLayout = { ...old };
             newLayout.windowOrder = old.windowOrder.filter(i => i !== arrayIndex);
@@ -69,7 +68,6 @@ export function useWindowLayout() {
     }, []);
 
     const toggleWindowShown = React.useCallback(({ arrayIndex }: Index) => {
-        console.log("toggle")
         console.log(arrayIndex)
         setWindowLayout(old => {
             const newLayout = { ...old };
@@ -85,7 +83,6 @@ export function useWindowLayout() {
     }, []);
 
     const bringWindowToFront = React.useCallback(({ arrayIndex, orderIndex }: Index) => {
-        console.log("front")
         setWindowLayout(old => {
             const newLayout = { ...old };
             let windowIndex = arrayIndex;
