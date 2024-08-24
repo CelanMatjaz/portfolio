@@ -30,17 +30,17 @@ export const Taskbar: React.FC<TaskbarProps> = ({ windows, taskOrder, toggleWind
     return (
         <div className="taskbar">
             {startMenuVisible && <div className={startMenuClasses}>
-                <div className="grid grid-cols-2">
-                    <div>
+                <div className="grid grid-cols-2 gap-[2px]">
+                    <div className="start-menu-vertical-section">
                         <div className="start-menu-group">Projects</div>
                         {projects.map((p, i) => <div key={i} className="start-menu-item" onClick={() => {
                             setStartMenuVisible(false);
                             openProjectWindow(p);
                         }}>{p.title}</div>)}
+                        <div className="start-menu-bottom-padding"></div>
                     </div>
-
+                    <div className="start-menu-vertical-section"></div>
                 </div>
-                <div className="start-menu-bottom-padding"></div>
             </div>}
             <div className="tasks">
                 <div className="start-button" onClick={(e) => {

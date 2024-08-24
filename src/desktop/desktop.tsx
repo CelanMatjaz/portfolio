@@ -35,7 +35,7 @@ export const Desktop: React.FC<React.PropsWithChildren<DesktopProps>> = ({ onOpe
                     key={i}
                     project={project}
                     onClick={onIconClick}
-                    onDoubleClick={onIconDoubleClick}
+                    onDoubleClick={() => onIconDoubleClick(project)}
                     isSelected={project.id === selectedProjectId}
                 />)}
             </div>
