@@ -88,3 +88,28 @@
 .default-link {
     @apply underline hover:no-underline;
 }
+
+.about-container {
+    @apply flex flex-row gap-10;
+
+    img {
+        @apply mx-auto mb-12 max-w-[300px] rounded-full;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .about-container {
+        @apply block;
+    }
+
+    .projects {
+
+        div {
+            @apply block;
+        }
+
+        .filters {
+            @apply w-full mb-8;
+        }
+    }
+}

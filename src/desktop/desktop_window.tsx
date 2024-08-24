@@ -30,8 +30,10 @@ export const DesktopWindow: React.FC<DesktopWindowProps> = (props) => {
 
     return (
         <span
+
             className={classNames("desktop-window", { front: isFront, 'z-20': isFront })}
             onClick={() => bringWindowToFront(index)}
+            onScroll={e => e.stopPropagation()}
             style={style}
             ref={setNodeRef}
             {...listeners}

@@ -4,15 +4,17 @@ import { ThemeSwitcher } from '../components/theme_switcher';
 import classNames from 'classnames';
 import { ProjectsContext } from '../context';
 import { GearIcon, ImageIcon } from '../assets/svg_icons';
+import { createNewProjectWindow } from '../hooks/useWindowLayout';
+import { AboutMe } from '../components/about_me';
 
 interface TaskbarProps {
     windows: Window[];
     taskOrder: number[];
-    openProjectWindow: (project: Project) => void;
+    openWindow: (window: Window) => void;
     toggleWindowShown: (index: Index) => void;
 };
 
-export const Taskbar: React.FC<TaskbarProps> = ({ windows, taskOrder, toggleWindowShown, openProjectWindow }) => {
+export const Taskbar: React.FC<TaskbarProps> = ({ windows, taskOrder, toggleWindowShown, openWindow }) => {
     const projects = React.useContext(ProjectsContext);
 
     const [startMenuVisible, setStartMenuVisible] = React.useState(false);
@@ -35,12 +37,25 @@ export const Taskbar: React.FC<TaskbarProps> = ({ windows, taskOrder, toggleWind
                         <div className="start-menu-group">Projects</div>
                         {projects.map((p, i) => <div key={i} className="start-menu-item" onClick={() => {
                             setStartMenuVisible(false);
-                            openProjectWindow(p);
+                            openWindow(createNewProjectWindow(p));
                         }}>{p.title}</div>)}
                         <div className="start-menu-bottom-padding"></div>
                     </div>
                     <div className="start-menu-vertical-section">
-                        <div className="start-menu-group">Options</div>
+                        <div className="start-menu-group">Misc.</div>
+                        <div className="start-menu-item" onClick={() => {
+                            const newWindow = {
+                                id: -1,
+                                title: "About me",
+                                children: <AboutMe />,
+                                transform: { x: 10, y: 10 },
+                                imageUrl: undefined
+                            };
+                            openWindow(newWindow);
+                        }}>About me</div>
+                        <div className="start-menu-item" onClick={() => {
+                            throw new Error("Implement switch site layout button");
+                        }}>Back to portfolio</div>
                     </div>
                 </div>
             </div>}
@@ -70,7 +85,7 @@ export const Taskbar: React.FC<TaskbarProps> = ({ windows, taskOrder, toggleWind
                 )}
             </div>
             <div className="options">
-                <div className="option-button"><GearIcon /></div>
+                {/* <div className="option-button"><GearIcon /></div> */}
                 <div className="option-button"><ThemeSwitcher /></div>
             </div>
         </div >

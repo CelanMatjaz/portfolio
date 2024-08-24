@@ -2,6 +2,7 @@ import React from "react";
 import { Window as WindowType, Project as ProjectType, Index } from "../types";
 import { Project } from "../components/project";
 import { DragEndEvent, DragStartEvent } from "@dnd-kit/core/dist/types/events";
+import { AboutMe } from "../components/about_me";
 
 interface WindowLayout {
     windows: WindowType[];
@@ -62,6 +63,30 @@ export function useWindowLayout() {
         });
     }, []);
 
+    const openWindow = React.useCallback((newWindow: WindowType) => {
+        setWindowLayout(old => {
+            const newLayout = { ...old };
+
+            // Bring existing window to front
+            const foundWindowIndex = old.windows.findIndex(w => w.id === newWindow.id);
+            if (foundWindowIndex !== -1) {
+                newLayout.windowOrder = [...old.windowOrder, foundWindowIndex];
+                newLayout.taskOrder = [...old.taskOrder, foundWindowIndex];
+                if (old.windowOrder.includes(foundWindowIndex)) {
+                    newLayout.windowOrder.splice(old.windowOrder.indexOf(foundWindowIndex), 1);
+                    newLayout.taskOrder.splice(old.taskOrder.indexOf(foundWindowIndex), 1);
+                }
+                return newLayout;
+            }
+
+            newLayout.windowOrder = [...old.windowOrder, old.windows.length];
+            newLayout.taskOrder = [...old.taskOrder, old.windows.length];
+            newLayout.windows = [...old.windows, newWindow];
+
+            return newLayout;
+        });
+    }, []);
+
     const closeWindow = React.useCallback(({ arrayIndex }: Index) => {
         setWindowLayout(old => {
             const newLayout = { ...old };
@@ -115,19 +140,29 @@ export function useWindowLayout() {
         windowLayout,
         onDragStart,
         onDragEnd,
-        openProjectWindow,
+        openWindow,
         closeWindow,
         toggleWindowShown,
         bringWindowToFront,
     };
 }
 
-function createNewProjectWindow(project: ProjectType): WindowType {
+export function createNewProjectWindow(project: ProjectType): WindowType {
     return {
         id: project.id,
         title: project.title,
         children: <Project project={project} />,
         transform: { x: 10, y: 10 },
         imageUrl: project.imageUrls.length > 0 ? project.imageUrls[0] : undefined,
+    };
+}
+
+export function createNewAboutMeWindow(): WindowType {
+    return {
+        id: -1,
+        title: "About me",
+        children: <AboutMe />,
+        transform: { x: 10, y: 10 },
+        imageUrl: undefined
     };
 }
