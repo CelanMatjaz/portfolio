@@ -46,7 +46,11 @@ export function useWindowLayout() {
             const foundProjectWindowIndex = old.windows.findIndex(w => w.id === project.id);
             if (foundProjectWindowIndex !== -1) {
                 newLayout.windowOrder = [...old.windowOrder, foundProjectWindowIndex];
-                newLayout.windowOrder.splice(old.windowOrder.indexOf(foundProjectWindowIndex), 1);
+                newLayout.taskOrder = [...old.taskOrder, foundProjectWindowIndex];
+                if (old.windowOrder.includes(foundProjectWindowIndex)) {
+                    newLayout.windowOrder.splice(old.windowOrder.indexOf(foundProjectWindowIndex), 1);
+                    newLayout.taskOrder.splice(old.taskOrder.indexOf(foundProjectWindowIndex), 1);
+                }
                 return newLayout;
             }
 
@@ -68,7 +72,6 @@ export function useWindowLayout() {
     }, []);
 
     const toggleWindowShown = React.useCallback(({ arrayIndex }: Index) => {
-        console.log(arrayIndex)
         setWindowLayout(old => {
             const newLayout = { ...old };
             const orderIndex = old.windowOrder.indexOf(arrayIndex);
