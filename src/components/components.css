@@ -2,7 +2,6 @@
     @apply w-full overflow-hidden relative;
     max-width: 600px;
     max-height: 400px;
-
     margin: 0 auto;
 
     .arrow-button {
@@ -66,6 +65,26 @@
     }
 }
 
-.theme-switch-icon {
-    @apply select-none inline absolute;
+.theme-switcher {
+    @apply w-[50px] h-[50px] relative;
+
+    button {
+        @apply w-[50px] h-[50px] absolute top-0 left-0;
+
+        i {
+            @apply block;
+        }
+
+        svg {
+            @apply h-full w-full;
+        }
+    }
+
+    .theme-switch-icon {
+        @apply select-none inline absolute;
+    }
+}
+
+.default-link {
+    @apply underline hover:no-underline;
 }

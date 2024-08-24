@@ -11,14 +11,16 @@ export const ThemeSwitcher = () => {
     const [isDarkTheme, setIsDarkTheme] = React.useState(localStorage.getItem('theme') === 'dark');
 
     return <nav className="theme-switcher">
-        <button className={isDarkTheme ? '' : 'hidden'} onClick={() => {
+        <span className={isDarkTheme ? '' : 'hidden'} onClick={(e) => {
             setIsDarkTheme(false);
             setDarkTheme(false);
-        }}><SunIcon /></button>
-        <button className={isDarkTheme ? 'hidden' : ''} onClick={() => {
+            e.stopPropagation();
+        }}><SunIcon /></span>
+        <span className={isDarkTheme ? 'hidden' : ''} onClick={(e) => {
             setIsDarkTheme(true);
             setDarkTheme(true);
-        }}><MoonIcon /></button>
+            e.stopPropagation();
+        }}><MoonIcon /></span>
     </nav>
 }
 

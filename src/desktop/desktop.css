@@ -38,8 +38,11 @@
         transform: translateY(-100%);
 
         .start-menu-group {
-            @apply underline;
+            @apply underline pointer-events-none;
+        }
 
+        .start-menu-item {
+            @apply cursor-pointer;
         }
 
         .start-menu-group,
@@ -49,6 +52,10 @@
 
         .start-menu-bottom-padding {
             @apply h-[20px];
+        }
+
+        .start-menu-vertical-section {
+            @apply bg-gradient-to-r from-blue-500 to-blue-400;
         }
     }
 
@@ -68,18 +75,27 @@
             @apply inline-flex items-center h-[50px] w-[50px] bg-red-800 justify-center mr-[1px] hover:bg-red-400 cursor-pointer;
 
             * {
-                @apply w-[40px] h-[40px];
+                @apply w-[40px] h-[40px] rounded;
             }
         }
     }
 
     .options {
         @apply flex bg-blue-600 absolute right-0 top-0 items-center;
+
+        .option-button {
+            @apply w-[50px] h-[50px] cursor-pointer;
+
+            svg {
+                @apply h-full w-full;
+                transform: scale(50%);
+            }
+        }
     }
 }
 
 .desktop-window {
-    @apply absolute bg-sky-500 top-0 left-0 min-w-[360px] max-w-[80vw];
+    @apply absolute bg-sky-500 top-0 left-0 min-w-[360px] max-w-[80vw] drop-shadow-xl;
 
     &.front {
         @apply bg-sky-900;

@@ -1,6 +1,6 @@
 @keyframes start-menu-appear {
     0% {
-        transform: scaleY(0) scaleX(0.4) translateY(-100%);
+        transform: scaleY(0) scaleX(0.8) translateY(-100%);
         pointer-events: none;
     }
 
@@ -18,4 +18,11 @@
     animation-name: start-menu-appear;
     animation-duration: 0.2s;
     transform-origin: bottom left;
+}
+
+@media (pointer:none),
+(pointer:coarse) {
+    .start-menu-appear {
+        transform-origin: bottom;
+    }
 }

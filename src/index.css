@@ -21,22 +21,6 @@ body,
     }
 
 
-    .theme-switcher {
-        @apply w-[50px] h-[50px] relative;
-
-        button {
-            @apply w-[50px] h-[50px] absolute top-0 left-0;
-
-            svg {
-                @apply h-full w-full;
-                transform: translate3d(-50%, -50%, 0) scale(50%);
-            }
-        }
-
-        button.hidden {
-            display: none;
-        }
-    }
 
 }
 

@@ -3,7 +3,7 @@ import { Index, Project, Window } from '../types';
 import { ThemeSwitcher } from '../components/theme_switcher';
 import classNames from 'classnames';
 import { ProjectsContext } from '../context';
-import { ImageIcon } from '../assets/svg_icons';
+import { GearIcon, ImageIcon } from '../assets/svg_icons';
 
 interface TaskbarProps {
     windows: Window[];
@@ -39,7 +39,9 @@ export const Taskbar: React.FC<TaskbarProps> = ({ windows, taskOrder, toggleWind
                         }}>{p.title}</div>)}
                         <div className="start-menu-bottom-padding"></div>
                     </div>
-                    <div className="start-menu-vertical-section"></div>
+                    <div className="start-menu-vertical-section">
+                        <div className="start-menu-group">Options</div>
+                    </div>
                 </div>
             </div>}
             <div className="tasks">
@@ -67,7 +69,10 @@ export const Taskbar: React.FC<TaskbarProps> = ({ windows, taskOrder, toggleWind
                     </div>
                 )}
             </div>
-            <div className="options"><ThemeSwitcher /></div>
+            <div className="options">
+                <div className="option-button"><GearIcon /></div>
+                <div className="option-button"><ThemeSwitcher /></div>
+            </div>
         </div >
     );
 }
