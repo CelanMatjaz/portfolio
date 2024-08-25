@@ -1,4 +1,4 @@
 import React from "react";
-import { Project, Window } from "./types";
+import { Project } from "./types";
 
 export const ProjectsContext = React.createContext<Project[]>([]);

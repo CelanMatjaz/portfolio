@@ -39,30 +39,6 @@ export function useWindowLayout() {
         });
     }, []);
 
-    const openProjectWindow = React.useCallback((project: ProjectType) => {
-        setWindowLayout(old => {
-            const newLayout = { ...old };
-
-            // Bring existing window to front
-            const foundProjectWindowIndex = old.windows.findIndex(w => w.id === project.id);
-            if (foundProjectWindowIndex !== -1) {
-                newLayout.windowOrder = [...old.windowOrder, foundProjectWindowIndex];
-                newLayout.taskOrder = [...old.taskOrder, foundProjectWindowIndex];
-                if (old.windowOrder.includes(foundProjectWindowIndex)) {
-                    newLayout.windowOrder.splice(old.windowOrder.indexOf(foundProjectWindowIndex), 1);
-                    newLayout.taskOrder.splice(old.taskOrder.indexOf(foundProjectWindowIndex), 1);
-                }
-                return newLayout;
-            }
-
-            newLayout.windowOrder = [...old.windowOrder, old.windows.length];
-            newLayout.taskOrder = [...old.taskOrder, old.windows.length];
-            newLayout.windows = [...old.windows, createNewProjectWindow(project)];
-
-            return newLayout;
-        });
-    }, []);
-
     const openWindow = React.useCallback((newWindow: WindowType) => {
         setWindowLayout(old => {
             const newLayout = { ...old };

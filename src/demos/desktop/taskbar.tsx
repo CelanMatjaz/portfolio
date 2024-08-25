@@ -1,9 +1,9 @@
 import React from 'react'
-import { Index, Project, Window } from '../../types';
+import { Index, Window } from '../../types';
 import { ThemeSwitcher } from '../../components/theme_switcher';
 import classNames from 'classnames';
 import { ProjectsContext } from '../../context';
-import { GearIcon, ImageIcon } from '../../assets/svg_icons';
+import {  ImageIcon } from '../../assets/svg_icons';
 import { createNewProjectWindow } from '../../hooks/useWindowLayout';
 import { AboutMe } from '../../components/about_me';
 import { useNavigate } from 'react-router';
