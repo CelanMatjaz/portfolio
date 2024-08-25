@@ -8,7 +8,7 @@
 
 body,
 #root {
-    @apply relative min-h-[100vh] min-w-[320px] dark:bg-gray-700 h-full overflow-x-clip;
+    @apply relative h-[100vh] min-w-[320px] dark:bg-gray-700 overflow-x-hidden;
 }
 
 @layer components {
@@ -18,45 +18,5 @@ body,
 
     p {
         @apply mb-2;
-    }
-
-    a.default-link {
-        @apply underline underline-offset-1 hover:no-underline text-blue-600 dark:text-gray-300;
-    }
-
-    a.nav-link {
-        @apply default-link text-gray-600 dark:text-gray-300;
-
-        &.active {
-            @apply underline text-black dark:text-gray-100;
-        }
-    }
-
-    .navigation {
-        @apply bg-gray-50 p-6 sticky top-0 z-20 flex flex-row items-center dark:bg-gray-800;
-        border-bottom: 1px solid white;
-
-        ul {
-            @apply inline-block
-        }
-
-        li {
-            @apply inline-block;
-        }
-
-        a {
-            @apply px-6 py-4 no-underline hover:underline underline-offset-2;
-        }
-
-        &>button {
-            @apply self-end w-[30px] h-[30px] float-right;
-            transform: translateY(-50%);
-        }
-    }
-}
-
-@media screen and (max-width:650px) {
-    main {
-        @apply p-2;
     }
 }

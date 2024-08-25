@@ -1,12 +1,12 @@
 import React from 'react'
 import { Outlet } from 'react-router'
-import {Navigation} from './components/navigation'
+import { Navigation } from '../components/navigation'
 
-export const Layout: React.FC = () => {
+export const MainLayout: React.FC = () => {
     return (
         <>
             <Navigation />
-            <main className="container mx-auto p-4" style={{ paddingBottom: '100px' }}>
+            <main className="container mx-auto p-4 min-h-screen py-[120px]">
                 <Outlet />
             </main>
             <Footer />
@@ -15,7 +15,7 @@ export const Layout: React.FC = () => {
 }
 
 function Footer() {
-    return <footer className="bg-gray-50 p-6 flex flex-col absolute bottom-0 w-screen dark:bg-gray-800">
+    return <footer className="bg-gray-50 p-6 flex flex-col fixed bottom-0 w-screen dark:bg-gray-800">
         <div className="flex justify-center">
             Portfolio - Matjaž Čelan
         </div>

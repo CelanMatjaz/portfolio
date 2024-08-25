@@ -2,7 +2,7 @@ import React from 'react'
 import { Outlet, useParams } from 'react-router'
 import { ProjectBrief } from '../components/project_brief';
 import { Technologies } from '../components/technologies';
-import { ProjectsContext } from '../App';
+import { ProjectsContext } from '../context';
 
 export const Projects = () => {
     const projects = React.useContext(ProjectsContext);
@@ -40,5 +40,3 @@ export const Projects = () => {
         </div>
     );
 }
-
-

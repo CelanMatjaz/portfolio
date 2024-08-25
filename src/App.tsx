@@ -1,32 +1,35 @@
-import React from 'react';
+import { Project } from './types';
+import { ProjectsContext } from './context';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './routes';
-import { Project } from './types';
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
+import React from 'react';
 
-export const ProjectsContext = React.createContext<Project[]>([]);
+const queryClient = new QueryClient();
 
 function App() {
-    const [projects, setProjects] = React.useState([]);
-
-    React.useEffect(() => {
-        async function fetchProjects() {
-            try {
-                const res = await fetch('/projects.json');
-                const data = await res.json();
-                setProjects(data);
-            }
-            catch { }
-        }
-
-        fetchProjects();
-    }, []);
+    const { data: projects } = useQuery<Project[]>({
+        queryFn: async () => {
+            const response = await fetch("/projects.json");
+            return await response.json();
+        },
+        queryKey: ['projects'],
+    });
 
     return (
-        <React.StrictMode>
-            <ProjectsContext.Provider value={projects}>
-                <RouterProvider router={router}></RouterProvider>
-            </ProjectsContext.Provider>
-        </React.StrictMode>
+        <ProjectsContext.Provider value={projects || []}>
+            <RouterProvider router={router} />
+        </ProjectsContext.Provider>
+    );
+}
+
+export function AppWrapper() {
+    return (
+        <React.StrictMode >
+            <QueryClientProvider client={queryClient} >
+                <App />
+            </QueryClientProvider >
+        </React.StrictMode >
     );
 }
 
