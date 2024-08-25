@@ -1,8 +1,8 @@
 import React from "react";
 import { useDraggable } from "@dnd-kit/core";
 import { CSS } from "@dnd-kit/utilities"
-import { Index, Window } from "../types";
-import { CrossIcon, MinimizeIcon } from "../assets/svg_icons";
+import { Index, Window } from "../../types";
+import { CrossIcon, MinimizeIcon } from "../../assets/svg_icons";
 import classNames from "classnames";
 
 interface DesktopWindowProps {

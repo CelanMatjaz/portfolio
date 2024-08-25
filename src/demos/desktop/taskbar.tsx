@@ -1,11 +1,12 @@
 import React from 'react'
-import { Index, Project, Window } from '../types';
-import { ThemeSwitcher } from '../components/theme_switcher';
+import { Index, Project, Window } from '../../types';
+import { ThemeSwitcher } from '../../components/theme_switcher';
 import classNames from 'classnames';
-import { ProjectsContext } from '../context';
-import { GearIcon, ImageIcon } from '../assets/svg_icons';
-import { createNewProjectWindow } from '../hooks/useWindowLayout';
-import { AboutMe } from '../components/about_me';
+import { ProjectsContext } from '../../context';
+import { GearIcon, ImageIcon } from '../../assets/svg_icons';
+import { createNewProjectWindow } from '../../hooks/useWindowLayout';
+import { AboutMe } from '../../components/about_me';
+import { useNavigate } from 'react-router';
 
 interface TaskbarProps {
     windows: Window[];
@@ -18,6 +19,7 @@ export const Taskbar: React.FC<TaskbarProps> = ({ windows, taskOrder, toggleWind
     const projects = React.useContext(ProjectsContext);
 
     const [startMenuVisible, setStartMenuVisible] = React.useState(false);
+    const navigate = useNavigate();
 
     const startMenuClasses = classNames(
         "start-menu",
@@ -54,7 +56,7 @@ export const Taskbar: React.FC<TaskbarProps> = ({ windows, taskOrder, toggleWind
                             openWindow(newWindow);
                         }}>About me</div>
                         <div className="start-menu-item" onClick={() => {
-                            throw new Error("Implement switch site layout button");
+                            navigate("/");
                         }}>Back to portfolio</div>
                     </div>
                 </div>

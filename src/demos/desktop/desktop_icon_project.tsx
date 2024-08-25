@@ -1,5 +1,5 @@
-import { ImageIcon } from "../assets/svg_icons";
-import { Project } from "../types";
+import { ImageIcon } from "../../assets/svg_icons";
+import { Project } from "../../types";
 import { DesktopIcon } from "./desktop_icon";
 
 interface DesktopIconProps {

@@ -1,3 +1,7 @@
+.desktop-layout {
+    @apply relative h-[100vh] min-w-[320px] dark:bg-gray-700 overflow-clip;
+}
+
 .desktop {
     @apply h-screen bg-gray-300 dark:bg-gray-700 pb-[60px] grid p-2;
     grid-template-rows: repeat(auto-fit, minmax(120px, 1fr));

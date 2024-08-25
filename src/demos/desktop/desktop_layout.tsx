@@ -1,12 +1,12 @@
 import React from 'react'
-import { Taskbar } from './desktop/taskbar'
-import { Desktop } from './desktop/desktop'
 import { DndContext, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
-import { Project as ProjectType } from './types';
-import { DesktopWindow } from './desktop/desktop_window';
-import { createNewProjectWindow, useWindowLayout } from './hooks/useWindowLayout';
+import { Project as ProjectType } from '../../types'
+import { Desktop } from './desktop';
+import { DesktopWindow } from './desktop_window';
+import { Taskbar } from './taskbar';
+import { createNewProjectWindow, useWindowLayout } from '../../hooks/useWindowLayout';
 
-export const Layout: React.FC = () => {
+export const DesktopLayout: React.FC = () => {
     const {
         windowLayout: { windows, windowOrder, taskOrder },
         onDragStart,
@@ -26,7 +26,7 @@ export const Layout: React.FC = () => {
     );
 
     return (
-        <>
+        <div className="desktop-layout">
             <DndContext modifiers={[]} onDragStart={onDragStart} onDragEnd={onDragEnd} sensors={sensors}>
                 <Desktop onOpenWindow={(p: ProjectType) => openWindow(createNewProjectWindow(p))}>
                     {windowOrder.map((windowIndex, i) => <DesktopWindow
@@ -45,6 +45,6 @@ export const Layout: React.FC = () => {
                 taskOrder={taskOrder}
                 toggleWindowShown={toggleWindowShown}
                 openWindow={openWindow} />
-        </>
+        </div>
     );
 }
